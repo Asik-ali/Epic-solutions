@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://epic-solutions.vercel.app/sitemap.xml
