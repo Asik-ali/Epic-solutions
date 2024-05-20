@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const QuizApp = () => {
   const questions = [
@@ -19,34 +19,6 @@ const QuizApp = () => {
   const [score, setScore] = useState(0);
   const [answerStatus, setAnswerStatus] = useState(null);
   const [quizCompleted, setQuizCompleted] = useState(false);
-
-  // Load ads on component mount
-  useEffect(() => {
-    const script1 = document.createElement('script');
-    script1.type = 'text/javascript';
-    script1.innerHTML = `
-      google_ad_client = "ca-pub-7832822790443742";
-      google_ad_slot = "2";
-      google_ad_width = 320;
-      google_ad_height = 50;
-    `;
-    document.body.appendChild(script1);
-
-    const script2 = document.createElement('script');
-    script2.type = 'text/javascript';
-    script2.innerHTML = `
-      google_ad_client = "ca-pub-7832822790443742";
-      google_ad_slot = "2";
-      google_ad_width = 320;
-      google_ad_height = 480;
-    `;
-    document.body.appendChild(script2);
-
-    return () => {
-      document.body.removeChild(script1);
-      document.body.removeChild(script2);
-    };
-  }, []);
 
   const handleAnswer = (selectedOption) => {
     if (selectedOption === questions[currentQuestion].answer) {
@@ -144,9 +116,11 @@ const QuizApp = () => {
           {answerStatus === 'wrong' && <p className="text-red-600 mt-4">Wrong!</p>}
         </div>
       )}
-      {/* Ad containers */}
-      <div id="ad-container-1" className="mt-4"></div>
-      <div id="ad-container-2" className="mt-4"></div>
+      {/* New ad units */}
+      <div id='div-gpt-ad-1716183149951-0' style={{ minWidth: '300px', minHeight: '250px' }} />
+      <script dangerouslySetInnerHTML={{ __html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1716183149951-0'); });` }} />
+      <div id='div-gpt-ad-1716183207012-0' style={{ minWidth: '336px', minHeight: '280px' }} />
+      <script dangerouslySetInnerHTML={{ __html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1716183207012-0'); });` }} />
     </div>
   );
 };
