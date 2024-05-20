@@ -20,16 +20,31 @@ const QuizApp = () => {
   const [answerStatus, setAnswerStatus] = useState(null);
   const [quizCompleted, setQuizCompleted] = useState(false);
 
+  // Load ads on component mount
   useEffect(() => {
-    // Load Google AdSense script
-    const script = document.createElement('script');
-    script.src = '//pagead2.googlesyndication.com/pagead/show_ads.js';
-    script.async = true;
-    document.body.appendChild(script);
+    const script1 = document.createElement('script');
+    script1.type = 'text/javascript';
+    script1.innerHTML = `
+      google_ad_client = "ca-pub-7832822790443742";
+      google_ad_slot = "2";
+      google_ad_width = 320;
+      google_ad_height = 50;
+    `;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.type = 'text/javascript';
+    script2.innerHTML = `
+      google_ad_client = "ca-pub-7832822790443742";
+      google_ad_slot = "2";
+      google_ad_width = 320;
+      google_ad_height = 480;
+    `;
+    document.body.appendChild(script2);
 
     return () => {
-      // Clean up the script when component unmounts
-      document.body.removeChild(script);
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
     };
   }, []);
 
@@ -52,11 +67,15 @@ const QuizApp = () => {
   };
 
   const handlePrevious = () => {
-    setCurrentQuestion(currentQuestion - 1);
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
   };
 
   const handleSkip = () => {
-    setCurrentQuestion(currentQuestion + 1);
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
   };
 
   const restartQuiz = () => {
@@ -88,15 +107,13 @@ const QuizApp = () => {
               <li key={index}>
                 <button
                   className={`block w-full ${
-                    answerStatus === 'correct' && option === questions[currentQuestion].answer
+                    (answerStatus === 'correct' && option === questions[currentQuestion].answer) ||
+                    (answerStatus === 'wrong' && option === questions[currentQuestion].answer)
                       ? 'bg-green-500 hover:bg-green-700'
-                      : answerStatus === 'wrong'
-                      ? option === questions[currentQuestion].answer
-                        ? 'bg-green-500 hover:bg-green-700'
-                        : 'bg-red-500 hover:bg-red-700'
                       : 'bg-gray-200 hover:bg-gray-300'
                   } text-white font-semibold py-2 px-4 rounded-lg transition duration-200`}
                   onClick={() => handleAnswer(option)}
+                  disabled={answerStatus !== null}
                 >
                   {option}
                 </button>
@@ -105,15 +122,20 @@ const QuizApp = () => {
           </ul>
           <div className="mt-4 flex justify-between">
             <button
-              className="bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
+              className={`bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ${
+                currentQuestion === 0 ? 'cursor-not-allowed opacity-50' : ''
+              }`}
               onClick={handlePrevious}
-              disabled={currentQuestion === 0}
+              disabled={currentQuestion === 0 || answerStatus !== null}
             >
               Previous
             </button>
             <button
-              className="bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
+              className={`bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ${
+                currentQuestion === questions.length - 1 ? 'cursor-not-allowed opacity-50' : ''
+              }`}
               onClick={handleSkip}
+              disabled={currentQuestion === questions.length - 1 || answerStatus !== null}
             >
               Skip
             </button>
@@ -122,6 +144,9 @@ const QuizApp = () => {
           {answerStatus === 'wrong' && <p className="text-red-600 mt-4">Wrong!</p>}
         </div>
       )}
+      {/* Ad containers */}
+      <div id="ad-container-1" className="mt-4"></div>
+      <div id="ad-container-2" className="mt-4"></div>
     </div>
   );
 };
