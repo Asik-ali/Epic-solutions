@@ -35,13 +35,11 @@ function Home() {
       });
 
       window.googletag.cmd.push(function() {
-        // Display laptop ads
+        // Display ads based on screen size
         if(window.innerWidth > 768) {
           window.googletag.display('div-gpt-ad-laptop-1');
           window.googletag.display('div-gpt-ad-laptop-2');
-        }
-        // Display mobile ads
-        else {
+        } else {
           window.googletag.display('div-gpt-ad-mobile-1');
           window.googletag.display('div-gpt-ad-mobile-2');
         }
@@ -65,19 +63,11 @@ function Home() {
     <>
       <Hero />
       {/* Laptop ads */}
-      {window.innerWidth > 768 && (
-        <>
-          <div id="div-gpt-ad-laptop-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
-          <div id="div-gpt-ad-laptop-2" style={{ textAlign: 'center', margin: '20px 0' }}></div>
-        </>
-      )}
+      <div id="div-gpt-ad-laptop-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+      <div id="div-gpt-ad-laptop-2" style={{ textAlign: 'center', margin: '20px 0' }}></div>
       {/* Mobile ads */}
-      {window.innerWidth <= 768 && (
-        <>
-          <div id="div-gpt-ad-mobile-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
-          <div id="div-gpt-ad-mobile-2" style={{ textAlign: 'center', margin: '20px 0' }}></div>
-        </>
-      )}
+      <div id="div-gpt-ad-mobile-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+      <div id="div-gpt-ad-mobile-2" style={{ textAlign: 'center', margin: '20px 0' }}></div>
       <Welcome />
     </>
   );
