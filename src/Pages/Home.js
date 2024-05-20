@@ -4,44 +4,45 @@ import Welcome from '../Components/Welcome/Welcome';
 
 function Home() {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.async = true;
-    script.src = "https://securepubads.g.doubleclick.net/tag/js/gpt.js";
-    document.head.appendChild(script);
+    const loadGPTScript = () => {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.async = true;
+        script.src = "https://securepubads.g.doubleclick.net/tag/js/gpt.js";
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    };
 
-    window.googletag = window.googletag || { cmd: [] };
-    window.googletag.cmd.push(function() {
-      window.googletag.defineSlot('/23060765973/Mobilke', [728, 90], 'div-gpt-ad-1716173349548-0').addService(window.googletag.pubads());
-      window.googletag.enableServices();
+    loadGPTScript().then(() => {
+      window.googletag = window.googletag || { cmd: [] };
+      
+      window.googletag.cmd.push(function() {
+        window.googletag.defineSlot('/23060765973/Mobilke1', [728, 90], 'div-gpt-ad-1716173349548-0').addService(window.googletag.pubads());
+        window.googletag.defineSlot('/23060765973/Mobilke2', [728, 90], 'div-gpt-ad-1716173349548-1').addService(window.googletag.pubads());
+        window.googletag.enableServices();
+      });
+
+      window.googletag.cmd.push(function() {
+        window.googletag.display('div-gpt-ad-1716173349548-0');
+        window.googletag.display('div-gpt-ad-1716173349548-1');
+      });
+    }).catch((error) => {
+      console.error('Failed to load GPT script', error);
     });
 
     return () => {
-      document.head.removeChild(script);
+      // Optionally clean up the script
     };
-  }, []);
-
-  useEffect(() => {
-    if (window.googletag && window.googletag.cmd) {
-      window.googletag.cmd.push(function() {
-        window.googletag.display('div-gpt-ad-1716173349548-0');
-      });
-    }
   }, []);
 
   return (
     <>
       <Hero />
-      <div id="div-gpt-ad-1716173349548-0" style={{ textAlign: 'center', margin: '20px 0' }}>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1716173349548-0'); });
-            `,
-          }}
-        />
-      </div>
+      <div id="div-gpt-ad-1716173349548-0" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+      <div id="div-gpt-ad-1716173349548-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
       <Welcome />
     </>
   );
