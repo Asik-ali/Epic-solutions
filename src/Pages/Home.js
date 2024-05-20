@@ -4,45 +4,42 @@ import Welcome from '../Components/Welcome/Welcome';
 
 function Home() {
   useEffect(() => {
-    const script1 = document.createElement("script");
-    script1.type = "text/javascript";
-    script1.innerHTML = `
-      google_ad_client = "ca-pub-7832822790443742";
-      google_ad_slot = "Asdf1234";
-      google_ad_width = 728;
-      google_ad_height = 90;
-    `;
-    document.body.appendChild(script1);
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://securepubads.g.doubleclick.net/tag/js/gpt.js";
+    document.head.appendChild(script);
 
-    const script2 = document.createElement("script");
-    script2.type = "text/javascript";
-    script2.src = "//pagead2.googlesyndication.com/pagead/show_ads.js";
-    document.body.appendChild(script2);
+    window.googletag = window.googletag || { cmd: [] };
+    window.googletag.cmd.push(function() {
+      window.googletag.defineSlot('/23060765973/Mobilke', [728, 90], 'div-gpt-ad-1716173349548-0').addService(window.googletag.pubads());
+      window.googletag.enableServices();
+    });
 
     return () => {
-      document.body.removeChild(script1);
-      document.body.removeChild(script2);
+      document.head.removeChild(script);
     };
+  }, []);
+
+  useEffect(() => {
+    if (window.googletag && window.googletag.cmd) {
+      window.googletag.cmd.push(function() {
+        window.googletag.display('div-gpt-ad-1716173349548-0');
+      });
+    }
   }, []);
 
   return (
     <>
       <Hero />
-      <div id="ad-container" style={{ textAlign: 'center', margin: '20px 0' }}>
+      <div id="div-gpt-ad-1716173349548-0" style={{ textAlign: 'center', margin: '20px 0' }}>
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
-              google_ad_client = "ca-pub-7832822790443742";
-              google_ad_slot = "Asdf1234";
-              google_ad_width = 728;
-              google_ad_height = 90;
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1716173349548-0'); });
             `,
           }}
-        />
-        <script
-          type="text/javascript"
-          src="//pagead2.googlesyndication.com/pagead/show_ads.js"
         />
       </div>
       <Welcome />
