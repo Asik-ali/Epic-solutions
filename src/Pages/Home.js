@@ -20,31 +20,38 @@ function Home() {
       window.googletag = window.googletag || { cmd: [] };
       
       window.googletag.cmd.push(function() {
-        window.googletag.defineSlot('/23060765973/Mobilke1', [728, 90], 'div-gpt-ad-1716173349548-0').addService(window.googletag.pubads());
-        window.googletag.defineSlot('/23060765973/Mobilke2', [728, 90], 'div-gpt-ad-1716173349548-1').addService(window.googletag.pubads());
+        // Define slots for laptop ads
+        if(window.innerWidth > 768) {
+          window.googletag.defineSlot('/23060765973/Laptop1', [728, 90], 'div-gpt-ad-laptop-1').addService(window.googletag.pubads());
+          window.googletag.defineSlot('/23060765973/Laptop2', [728, 90], 'div-gpt-ad-laptop-2').addService(window.googletag.pubads());
+        }
+        // Define slots for mobile ads
+        else {
+          window.googletag.defineSlot('/23060765973/Mobile1', [320, 100], 'div-gpt-ad-mobile-1').addService(window.googletag.pubads());
+          window.googletag.defineSlot('/23060765973/Mobile2', [320, 50], 'div-gpt-ad-mobile-2').addService(window.googletag.pubads());
+        }
+        
         window.googletag.enableServices();
       });
 
       window.googletag.cmd.push(function() {
-        window.googletag.display('div-gpt-ad-1716173349548-0');
-        window.googletag.display('div-gpt-ad-1716173349548-1');
+        // Display laptop ads
+        if(window.innerWidth > 768) {
+          window.googletag.display('div-gpt-ad-laptop-1');
+          window.googletag.display('div-gpt-ad-laptop-2');
+        }
+        // Display mobile ads
+        else {
+          window.googletag.display('div-gpt-ad-mobile-1');
+          window.googletag.display('div-gpt-ad-mobile-2');
+        }
       });
 
-      // Add the additional AdSense script here
-      const adsScript = document.createElement("script");
-      adsScript.type = "text/javascript";
-      adsScript.innerHTML = `
-        google_ad_client = "ca-pub-7832822790443742";
-        google_ad_slot = "2";
-        google_ad_width = 320;
-        google_ad_height = 50;
-      `;
-      document.head.appendChild(adsScript);
-
-      const adsShowScript = document.createElement("script");
-      adsShowScript.type = "text/javascript";
-      adsShowScript.src = "//pagead2.googlesyndication.com/pagead/show_ads.js";
-      document.head.appendChild(adsShowScript);
+      // Load the adsbygoogle.js script for AdSense ads
+      const adsbygoogleScript = document.createElement("script");
+      adsbygoogleScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      adsbygoogleScript.async = true;
+      document.head.appendChild(adsbygoogleScript);
     }).catch((error) => {
       console.error('Failed to load GPT script', error);
     });
@@ -57,8 +64,20 @@ function Home() {
   return (
     <>
       <Hero />
-      <div id="div-gpt-ad-1716173349548-0" style={{ textAlign: 'center', margin: '20px 0' }}></div>
-      <div id="div-gpt-ad-1716173349548-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+      {/* Laptop ads */}
+      {window.innerWidth > 768 && (
+        <>
+          <div id="div-gpt-ad-laptop-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+          <div id="div-gpt-ad-laptop-2" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+        </>
+      )}
+      {/* Mobile ads */}
+      {window.innerWidth <= 768 && (
+        <>
+          <div id="div-gpt-ad-mobile-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+          <div id="div-gpt-ad-mobile-2" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+        </>
+      )}
       <Welcome />
     </>
   );
