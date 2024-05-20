@@ -3,7 +3,7 @@ import Hero from "../../src/Components/Hero/Hero";
 import Welcome from '../Components/Welcome/Welcome';
 
 function Home() {
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [viewportWidth, setViewportWidth] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,38 +30,46 @@ function Home() {
       });
     };
 
-    loadGPTScript().then(() => {
-      window.googletag = window.googletag || { cmd: [] };
+    loadGPTScript()
+      .then(() => {
+        window.googletag = window.googletag || { cmd: [] };
 
-      window.googletag.cmd.push(function() {
-        window.googletag.defineSlot('/23060765973/Mobilke1', [728, 90], 'div-gpt-ad-1716173349548-0').addService(window.googletag.pubads());
-        window.googletag.defineSlot('/23060765973/Mobilke2', [728, 90], 'div-gpt-ad-1716173349548-1').addService(window.googletag.pubads());
-        window.googletag.enableServices();
+        if (!window.googletag.pubadsReady) {
+          window.googletag.cmd.push(function() {
+            window.googletag.pubads().enableSingleRequest();
+            window.googletag.pubads().collapseEmptyDivs();
+            window.googletag.enableServices();
+          });
+        }
+      })
+      .catch((error) => {
+        console.error('Failed to load GPT script', error);
       });
 
-      window.googletag.cmd.push(function() {
-        window.googletag.display('div-gpt-ad-1716173349548-0');
-        window.googletag.display('div-gpt-ad-1716173349548-1');
-      });
-    }).catch((error) => {
-      console.error('Failed to load GPT script', error);
-    });
+    return () => {
+      // Clean up
+    };
+  }, []);
 
+  useEffect(() => {
     const reloadAds = () => {
-      const existingAdScripts = document.querySelectorAll('.ad-script');
-      existingAdScripts.forEach(script => script.remove());
-
+      const existingAdSlots = document.querySelectorAll('[id^="div-gpt-ad-"]');
+      existingAdSlots.forEach(slot => {
+        slot.parentNode.removeChild(slot);
+      });
+    
       if (viewportWidth <= 768) { // Mobile view
         loadMobileAdScript();
       } else { // Laptop view
         loadDesktopAdScript();
       }
     };
+    
 
     reloadAds();
 
     return () => {
-      // Optionally clean up the scripts when the component unmounts
+      // Clean up
     };
   }, [viewportWidth]);
 
