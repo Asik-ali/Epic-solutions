@@ -100,7 +100,7 @@ function Carrer() {
         </ul>
         <p className="text-gray-700 mt-4">
           To apply, send your resume and a cover letter to <a href="mailto:email@example.com"
-            className="text-blue-500">epicsolutions08@gmail.com</a>.
+            className="text-blue-500">epicsolutions@gmail.com</a>.
         </p>
       </div>
     </div>

@@ -25,7 +25,7 @@ function Footer() {
               <ul className="mt-8 flex gap-6">
                 <li>
                   <a
-                    href="https://www.facebook.com/epicsolutions08"
+                    href="https://www.facebook.com/epicsolutions"
                     rel="noreferrer"
                     target="_blank"
                     className="text-gray-700 transition hover:opacity-75"
@@ -49,7 +49,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="https://www.instagram.com/mnc_jobs_update/"
+                    href="https://www.instagram.com/mnc_jobs_upda/"
                     rel="noreferrer"
                     target="_blank"
                     className="text-gray-700 transition hover:opacity-75"
@@ -72,7 +72,7 @@ function Footer() {
                 </li>
                 <li className="flex items-center text-lg"> 
                 <a
-                    href="https://www.linkedin.com/in/humera-a-n-9137782a0/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BFR2lMO62SRuXwEXmMAYImA%3D%3D"
+                    href="#"
                     rel="noreferrer"
                     target="_blank"
                     className="text-gray-700 transition hover:opacity-75"
@@ -132,16 +132,16 @@ function Footer() {
                   <li className="flex  gap-2">
                     <FaMapLocation className="text-xl" />{" "}
                     <span className="w-[200px]">
-                      -42, Makrani Cross Lane, A.K marg, Beharam, Bandra East,
-                      Mumbai 400051
+                      -42, Gst road, Vandalur, Chennai,
+                      Tamilnadu 600048
                     </span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <BsTelephoneFill /> 8097061134/7045063182
+                    <BsTelephoneFill /> 123456789
                   </li>
                   <li className="flex items-center gap-2">
                     <GrMail className="text-xl" />{" "}
-                    <span className="w-4">epicsolutions08@gmail.com</span>
+                    <span className="w-4">Erc2@gmail.com</span>
                   </li>
                 </ul>
               </div>
@@ -149,7 +149,7 @@ function Footer() {
           </div>
         </div>
         <p className="text-lg text-center p-3 bg-black w-full text-white">
-          &copy; 2023. Epic Solution. All rights reserved.
+          &copy; 2024. Epic Solution. All rights reserved.
         </p>
       </footer>
     </div>

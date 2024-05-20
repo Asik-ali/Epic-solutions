@@ -185,7 +185,7 @@ return (
             <ul className="mt-3">
               <li className="flex items-center gap-3  ">
                 <IoCallSharp className="text-[#26ACE2] " />{" "}
-                Epic-Solutions - 8097061134
+                Epic-Solutions - 123456789
               </li>
             </ul>
           </div>
