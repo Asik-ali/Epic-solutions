@@ -20,28 +20,21 @@ function Home() {
       window.googletag = window.googletag || { cmd: [] };
       
       window.googletag.cmd.push(function() {
-        // Define slots for laptop ads
-        if(window.innerWidth > 768) {
-          window.googletag.defineSlot('/23060765973/Laptop1', [728, 90], 'div-gpt-ad-laptop-1').addService(window.googletag.pubads());
-          window.googletag.defineSlot('/23060765973/Laptop2', [728, 90], 'div-gpt-ad-laptop-2').addService(window.googletag.pubads());
-        }
-        // Define slots for mobile ads
-        else {
-          window.googletag.defineSlot('/23060765973/Mobile1', [320, 100], 'div-gpt-ad-mobile-1').addService(window.googletag.pubads());
-          window.googletag.defineSlot('/23060765973/Mobile2', [320, 50], 'div-gpt-ad-mobile-2').addService(window.googletag.pubads());
-        }
+        // Define slot for laptop ad
+        window.googletag.defineSlot('/23060765973/Laptop', [728, 90], 'div-gpt-ad-laptop').addService(window.googletag.pubads());
+        
+        // Define slot for mobile ad
+        window.googletag.defineSlot('/23060765973/Mobile', [320, 100], 'div-gpt-ad-mobile').addService(window.googletag.pubads());
         
         window.googletag.enableServices();
       });
 
       window.googletag.cmd.push(function() {
-        // Display ads based on screen size
+        // Display laptop ad if screen size is greater than 768 pixels
         if(window.innerWidth > 768) {
-          window.googletag.display('div-gpt-ad-laptop-1');
-          window.googletag.display('div-gpt-ad-laptop-2');
-        } else {
-          window.googletag.display('div-gpt-ad-mobile-1');
-          window.googletag.display('div-gpt-ad-mobile-2');
+          window.googletag.display('div-gpt-ad-laptop');
+        } else { // Display mobile ad if screen size is less than or equal to 768 pixels
+          window.googletag.display('div-gpt-ad-mobile');
         }
       });
 
@@ -62,12 +55,10 @@ function Home() {
   return (
     <>
       <Hero />
-      {/* Laptop ads */}
-      <div id="div-gpt-ad-laptop-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
-      <div id="div-gpt-ad-laptop-2" style={{ textAlign: 'center', margin: '20px 0' }}></div>
-      {/* Mobile ads */}
-      <div id="div-gpt-ad-mobile-1" style={{ textAlign: 'center', margin: '20px 0' }}></div>
-      <div id="div-gpt-ad-mobile-2" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+      Ad
+      <div id="div-gpt-ad-laptop" style={{ textAlign: 'center', margin: '20px 0' }}></div>
+     
+      <div id="div-gpt-ad-mobile" style={{ textAlign: 'center', margin: '20px 0' }}></div>
       <Welcome />
     </>
   );
