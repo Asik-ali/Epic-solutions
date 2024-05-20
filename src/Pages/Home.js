@@ -29,6 +29,22 @@ function Home() {
         window.googletag.display('div-gpt-ad-1716173349548-0');
         window.googletag.display('div-gpt-ad-1716173349548-1');
       });
+
+      // Add the additional AdSense script here
+      const adsScript = document.createElement("script");
+      adsScript.type = "text/javascript";
+      adsScript.innerHTML = `
+        google_ad_client = "ca-pub-7832822790443742";
+        google_ad_slot = "2";
+        google_ad_width = 320;
+        google_ad_height = 50;
+      `;
+      document.head.appendChild(adsScript);
+
+      const adsShowScript = document.createElement("script");
+      adsShowScript.type = "text/javascript";
+      adsShowScript.src = "//pagead2.googlesyndication.com/pagead/show_ads.js";
+      document.head.appendChild(adsShowScript);
     }).catch((error) => {
       console.error('Failed to load GPT script', error);
     });
