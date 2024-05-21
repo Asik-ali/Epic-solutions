@@ -7,7 +7,7 @@ function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsWideScreen(window.innerWidth > 768);
+      setIsWideScreen(window.innerWidth > 767);
     };
 
     // Initial check
@@ -27,10 +27,10 @@ function Home() {
       const script1 = document.createElement('script');
       script1.type = 'text/javascript';
       script1.innerHTML = `
-        google_ad_client = "ca-pub-7832822790443742";
-        google_ad_slot = "Asdf1234";
-        google_ad_width = 728;
-        google_ad_height = 90;
+        window.google_ad_client = "ca-pub-7832822790443742";
+        window.google_ad_slot = "Asdf1234";
+        window.google_ad_width = 728;
+        window.google_ad_height = 90;
       `;
 
       const script2 = document.createElement('script');
