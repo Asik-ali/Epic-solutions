@@ -41,12 +41,14 @@ const QuizApp = () => {
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
+      setAnswerStatus(null);
     }
   };
 
   const handleSkip = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      setAnswerStatus(null);
     }
   };
 
@@ -78,10 +80,11 @@ const QuizApp = () => {
             {questions[currentQuestion].options.map((option, index) => (
               <li key={index}>
                 <button
-                  className={`block w-full ${
-                    (answerStatus === 'correct' && option === questions[currentQuestion].answer) ||
-                    (answerStatus === 'wrong' && option === questions[currentQuestion].answer)
+                  className={`block w-full text-center ${
+                    answerStatus === 'correct' && option === questions[currentQuestion].answer
                       ? 'bg-green-500 hover:bg-green-700'
+                      : answerStatus === 'wrong' && option === questions[currentQuestion].answer
+                      ? 'bg-red-500 hover:bg-red-700'
                       : 'bg-gray-200 hover:bg-gray-300'
                   } text-white font-semibold py-2 px-4 rounded-lg transition duration-200`}
                   onClick={() => handleAnswer(option)}
@@ -116,11 +119,6 @@ const QuizApp = () => {
           {answerStatus === 'wrong' && <p className="text-red-600 mt-4">Wrong!</p>}
         </div>
       )}
-      {/* New ad units */}
-      <div id='div-gpt-ad-1716183149951-0' style={{ minWidth: '300px', minHeight: '250px' }} />
-      <script dangerouslySetInnerHTML={{ __html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1716183149951-0'); });` }} />
-      <div id='div-gpt-ad-1716183207012-0' style={{ minWidth: '336px', minHeight: '280px' }} />
-      <script dangerouslySetInnerHTML={{ __html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1716183207012-0'); });` }} />
     </div>
   );
 };
