@@ -99,9 +99,11 @@ function AboutContent() {
         </div>
       </section>
 
-      <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
-      <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
-      <Adsense client="ca-pub-7832822790443742" slot="7" width={480} height={320} />
+      <div className='flex justify-evenly flex-wrap'>
+        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+      </div>
       {/* Goodbye to Unemployment Section */}
       <section className="bg-[#E3F6F9] mt-5">
         <h2 className="text-center text-xl lg:text-2xl p-5 lg:p-10">
