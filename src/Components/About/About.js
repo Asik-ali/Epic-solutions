@@ -8,6 +8,7 @@ import img4 from "../../Assest/4.jpg";
 import about from "../../Assest/aboutimg1.jpg";
 import responsibilities from "./Resposibiltesdata";
 import approachPoints from "./Apporachpoint";
+import Adsense from "../../Pages/Adsense";
 
 function AboutContent() {
   return (
@@ -98,6 +99,9 @@ function AboutContent() {
         </div>
       </section>
 
+      <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+      <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+      <Adsense client="ca-pub-7832822790443742" slot="7" width={480} height={320} />
       {/* Goodbye to Unemployment Section */}
       <section className="bg-[#E3F6F9] mt-5">
         <h2 className="text-center text-xl lg:text-2xl p-5 lg:p-10">
