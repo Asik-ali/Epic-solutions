@@ -39,21 +39,34 @@
 // };
 
 // export default AdSense;
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const AdSense = ({ client, slot, width, height }) => {
   const adRef = useRef(null);
 
-  useLayoutEffect(() => {
-    const ins = document.createElement('ins');
-    ins.className = 'adsbygoogle';
-    ins.style = `display:inline-block;width:${width}px;height:${height}px`;
-    ins.setAttribute('data-ad-client', client);
-    ins.setAttribute('data-ad-slot', slot);
+  useEffect(() => {
+    const loadAdSense = () => {
+      const ins = document.createElement('ins');
+      ins.className = 'adsbygoogle';
+      ins.style = `display:inline-block;width:${width}px;height:${height}px`;
+      ins.setAttribute('data-ad-client', client);
+      ins.setAttribute('data-ad-slot', slot);
 
-    if (adRef.current && !adRef.current.querySelector('.adsbygoogle')) {
-      adRef.current.appendChild(ins);
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      if (adRef.current && !adRef.current.querySelector('.adsbygoogle')) {
+        adRef.current.appendChild(ins);
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    };
+
+    if (!window.adsbygoogle) {
+      const script = document.createElement('script');
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+      script.async = true;
+      script.onload = loadAdSense;
+
+      document.head.appendChild(script);
+    } else {
+      loadAdSense();
     }
 
     return () => {
@@ -62,19 +75,6 @@ const AdSense = ({ client, slot, width, height }) => {
       }
     };
   }, [client, slot, width, height]);
-
-  useEffect(() => {
-    const loadAdSenseScript = () => {
-      if (!window.adsbygoogle) {
-        const script = document.createElement('script');
-        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-        script.async = true;
-        document.head.appendChild(script);
-      }
-    };
-
-    loadAdSenseScript();
-  }, []);
 
   return <div ref={adRef}></div>;
 };
