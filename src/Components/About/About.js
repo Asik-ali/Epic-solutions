@@ -99,10 +99,7 @@ function AboutContent() {
         </div>
       </section>
 
-      <div className='flex justify-evenly flex-wrap'>
-        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
-        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
-      </div>
+
       {/* Goodbye to Unemployment Section */}
       <section className="bg-[#E3F6F9] mt-5">
         <h2 className="text-center text-xl lg:text-2xl p-5 lg:p-10">
@@ -113,7 +110,10 @@ function AboutContent() {
           Hiring is the most important people function you have, and most of us aren't as good at it as we think. Refocusing your resources on hiring better will have a higher return than almost any training program you can develop.
         </h2>
       </section>
-
+      <div className='flex justify-evenly flex-wrap'>
+        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+      </div>
       {/* About Us Section */}
       <section className="mt-10 lg:px-4">
         <h1 className="text-center text-3xl lg:text-4xl font-[poppins] font-semibold">Our Story</h1>
@@ -137,7 +137,7 @@ function AboutContent() {
           </div>
         </div>
       </section>
-
+    
       {/* Responsibilities Section */}
       <section className="container mx-auto mt-8">
         <h2 className="text-3xl font-bold mb-6 text-center">Our Responsibilities</h2>
@@ -152,7 +152,10 @@ function AboutContent() {
           ))}
         </div>
       </section>
-
+      <div className='flex justify-evenly flex-wrap'>
+        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+      </div>
       {/* Approach Section */}
       <section className="container mx-auto mt-8 overflow-hidden pb-8">
         <h2 className="text-3xl font-bold mb-6 text-center">Our Approach at Epic Solutions</h2>
