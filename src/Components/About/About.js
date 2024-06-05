@@ -100,9 +100,8 @@ function AboutContent() {
       </section>
 
       <div className='flex justify-evenly flex-wrap'>
-        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
-        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
-        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+        <Adsense client="ca-pub-7832822790443742" slot="5"  />
+        <Adsense client="ca-pub-7832822790443742" slot="5"  />
       </div>
       {/* Goodbye to Unemployment Section */}
       <section className="bg-[#E3F6F9] mt-5">

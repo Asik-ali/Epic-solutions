@@ -41,16 +41,18 @@
 // export default AdSense;
 import React, { useEffect, useRef } from 'react';
 
-const AdSense = ({ client, slot, width, height }) => {
+const AdSense = ({ client, slot }) => {
   const adRef = useRef(null);
 
   useEffect(() => {
     const loadAdSense = () => {
       const ins = document.createElement('ins');
       ins.className = 'adsbygoogle';
-      ins.style = `display:inline-block;width:${width}px;height:${height}px`;
+      ins.style = 'display:block';
       ins.setAttribute('data-ad-client', client);
       ins.setAttribute('data-ad-slot', slot);
+      ins.setAttribute('data-ad-format', 'auto');
+      ins.setAttribute('data-full-width-responsive', 'true');
 
       if (adRef.current && !adRef.current.querySelector('.adsbygoogle')) {
         adRef.current.appendChild(ins);
@@ -74,7 +76,7 @@ const AdSense = ({ client, slot, width, height }) => {
         adRef.current.innerHTML = '';
       }
     };
-  }, [client, slot, width, height]);
+  }, [client, slot]);
 
   return <div ref={adRef}></div>;
 };
