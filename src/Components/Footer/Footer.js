@@ -4,8 +4,9 @@ import { FaMapLocation } from "react-icons/fa6";
 import { GrMail } from "react-icons/gr";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Adsense from "../../Pages/Adsense";
 function Footer() {
- 
+
   return (
     <div>
       <footer className="bg-[#8D99AE] ">
@@ -19,7 +20,7 @@ function Footer() {
               </div>
 
               <p className="mt-4 max-w-xs text-gray-500">
-              Epic Solutions provides comprehensive Human Resource Management services to organizations, addressing talent needs and matching candidates with their desired jobs.
+                Epic Solutions provides comprehensive Human Resource Management services to organizations, addressing talent needs and matching candidates with their desired jobs.
               </p>
 
               <ul className="mt-8 flex gap-6">
@@ -70,17 +71,17 @@ function Footer() {
                     </svg>
                   </a>
                 </li>
-                <li className="flex items-center text-lg"> 
-                <a
+                <li className="flex items-center text-lg">
+                  <a
                     href="#"
                     rel="noreferrer"
                     target="_blank"
                     className="text-gray-700 transition hover:opacity-75"
                   >
-                  <FaLinkedinIn />
+                    <FaLinkedinIn />
                   </a>
                 </li>
-                
+
               </ul>
             </div>
 
@@ -106,21 +107,21 @@ function Footer() {
 
                 <ul className="mt-6 space-y-4 text-sm">
                   <li className="flex items-center gap-2">
-                    <BsChevronDoubleRight /> 
-                    <Link  to="/">Home</Link>
+                    <BsChevronDoubleRight />
+                    <Link to="/">Home</Link>
                   </li>
                   <li className="flex items-center gap-2">
-                    <BsChevronDoubleRight /> 
-                    <Link  to="About">About</Link>
+                    <BsChevronDoubleRight />
+                    <Link to="About">About</Link>
 
                   </li>
                   <li className="flex items-center gap-2">
-                    <BsChevronDoubleRight /> 
-                    <Link  to="Services">Services</Link>
+                    <BsChevronDoubleRight />
+                    <Link to="Services">Services</Link>
                   </li>
                   <li className="flex items-center gap-2">
-                    <BsChevronDoubleRight /> 
-                    <Link  to="Contact">Contact Us</Link>
+                    <BsChevronDoubleRight />
+                    <Link to="Contact">Contact Us</Link>
                   </li>
                 </ul>
               </div>
@@ -148,9 +149,14 @@ function Footer() {
             </div>
           </div>
         </div>
+        <div className='flex justify-evenly flex-wrap'>
+          <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+          <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+        </div>
         <p className="text-lg text-center p-3 bg-black w-full text-white">
           &copy; 2024. Epic Solution. All rights reserved.
         </p>
+
       </footer>
     </div>
   );
