@@ -13,7 +13,6 @@ const articles = [
         title: 'The Future of Mobile Technology',
         content: `
       <p class="mb-6">Mobile technology hasundergone a remarkable evolution over the past few decades, revolutionizing the way we communicate, work, and navigate daily life. From the introduction of the first cell phones to the era of smartphones and beyond, the trajectory of mobile technology has been marked by innovation and rapid advancement. As we look to the future, the landscape of mobile technology is poised for further transformation, driven by emerging trends and cutting-edge developments. This article explores the exciting possibilities and potential challenges shaping the future of mobile technology.</p>
-
       <h2 class="text-lg font-semibold my-4">Emerging Technologies :</h2>
 
       <h3 class="text-base text-start font-semibold my-4">5G Connectivity:</h3>
@@ -45,6 +44,7 @@ const articles = [
       Biometric authentication methods, such as facial recognition and fingerprint scanning, are becoming increasingly prevalent in mobile devices. By providing secure and convenient access to sensitive information, biometric authentication technologies are enhancing the security and user experience of mobile applications. As biometric sensors become more advanced and widespread, we can expect to see them integrated into a wider range of devices and applications.</p>
 
       <h2 class="text-lg font-semibold my-4">Challenges and Considerations</h2>
+                        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
 
       <h3 class="text-base text-start font-semibold my-4">Privacy and Security Concerns:</h3>
       <p class="mb-6">
@@ -1460,6 +1460,10 @@ const ArticlePage = () => {
     const isLaptopView = () => {
         return window.innerWidth >= 1024; // Assuming laptop width range
     };
+    const isMobileView = () => {
+        return window.innerWidth < 768; // Assuming mobile width range
+    };
+
     const { id } = useParams();
     const article = articles.find(article => article.id === parseInt(id));
 
@@ -1474,9 +1478,12 @@ const ArticlePage = () => {
                 <div className="w-full lg:w-3/4 p-4 shadow-xl">
                     <h1 className="text-2xl font-bold mb-4 text-center">{article.title}</h1>
                     <div className='flex justify-evenly flex-wrap'>
-                        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
-                        <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
-                        {isTabletView() && (
+                        {isMobileView() && (
+                            <>
+                                <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+                                <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+                            </>
+                        )}{isTabletView() && (
                             <>
                                 <Adsense client="ca-pub-7832822790443742" slot="7" width={728} height={90} />
                                 <Adsense client="ca-pub-7832822790443742" slot="8" width={768} height={90} />

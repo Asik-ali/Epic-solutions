@@ -11,15 +11,22 @@ function Home() {
   const isLaptopView = () => {
     return window.innerWidth >= 1024; // Assuming laptop width range
   };
+  const isMobileView = () => {
+    return window.innerWidth < 768; // Assuming mobile width range
+  };
+
 
   return (
     <>
       <Hero />
       <Welcome />
       <div className='flex justify-evenly flex-wrap'>
-        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
-        <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
-        {isTabletView() && (
+      {isMobileView() && (
+          <>
+            <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+            <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+          </>
+        )}{isTabletView() && (
           <>
             <Adsense client="ca-pub-7832822790443742" slot="7" width={728} height={90} />
             <Adsense client="ca-pub-7832822790443742" slot="8" width={768} height={90} />

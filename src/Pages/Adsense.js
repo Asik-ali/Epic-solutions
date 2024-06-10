@@ -1,6 +1,6 @@
 // import React, { useEffect, useRef } from 'react';
 
-// const AdSense = ({ client, slot, width, height }) => {
+// const Adsense = ({ client, slot, width, height }) => {
 //   const adRef = useRef(null);
 
 //   useEffect(() => {
@@ -35,14 +35,36 @@
 //     };
 //   }, [client, slot, width, height]);
 
-//   return <div ref={adRef}></div>;
+//   const isTabletView = () => {
+//     return window.innerWidth >= 768 && window.innerWidth < 1024; // Assuming tablet width range
+//   };
+
+//   return (
+//     <div>
+//       <div ref={adRef}></div>
+//       {isTabletView() && (
+//         <div id='div-gpt-ad-1717607042978-0' style={{ minWidth: '728px', minHeight: '90px' }}>
+//           <script
+//             dangerouslySetInnerHTML={{
+//               __html: `
+//                 googletag.cmd.push(function() { 
+//                   googletag.display('div-gpt-ad-1717607042978-0'); 
+//                 });
+//               `,
+//             }}
+//           />
+//         </div>
+//       )}
+//     </div>
+//   );
 // };
 
-// export default AdSense;
-import React, { useEffect, useRef } from 'react';
+// export default Adsense;
+import React, { useEffect, useRef, useState } from 'react';
 
 const Adsense = ({ client, slot, width, height }) => {
   const adRef = useRef(null);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
     const loadAdSense = () => {
@@ -62,6 +84,7 @@ const Adsense = ({ client, slot, width, height }) => {
       const script = document.createElement('script');
       script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
       script.async = true;
+      script.defer = true;
       script.onload = loadAdSense;
 
       document.head.appendChild(script);
@@ -77,13 +100,23 @@ const Adsense = ({ client, slot, width, height }) => {
   }, [client, slot, width, height]);
 
   const isTabletView = () => {
-    return window.innerWidth >= 768 && window.innerWidth < 1024; // Assuming tablet width range
+    return window.innerWidth >= 768 && window.innerWidth < 1024;
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsTablet(isTabletView());
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div>
       <div ref={adRef}></div>
-      {isTabletView() && (
+      {isTablet && (
         <div id='div-gpt-ad-1717607042978-0' style={{ minWidth: '728px', minHeight: '90px' }}>
           <script
             dangerouslySetInnerHTML={{

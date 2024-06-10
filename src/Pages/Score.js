@@ -13,13 +13,16 @@ const articles = [
 ];
 
 const ArticleList = () => {
-  const isTabletView = () => {
-    return window.innerWidth >= 768 && window.innerWidth < 1024; // Assuming tablet width range
+  const isMobileView = () => {
+    return window.innerWidth < 768; // Assuming mobile width range
   };
+  // const isTabletView = () => {
+  //   return window.innerWidth >= 768 && window.innerWidth < 1024; // Assuming tablet width range
+  // };
 
-  const isLaptopView = () => {
-    return window.innerWidth >= 1024; // Assuming laptop width range
-  };
+  // const isLaptopView = () => {
+  //   return window.innerWidth >= 1024; // Assuming laptop width range
+  // };
   return (
     <div className="p-4 flex flex-wrap justify-between mx-2 ">
       {articles.map((article) => (
@@ -29,22 +32,12 @@ const ArticleList = () => {
             <div className="article-content">
               <h2 className="article-title text-xl font-bold mb-2">{article.title}</h2>
               <p className="article-summary mb-2">{article.summary}</p>
-              <div className='flex justify-evenly flex-wrap'>
-                <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
-                <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
-                {isTabletView() && (
-                  <>
-                    <Adsense client="ca-pub-7832822790443742" slot="7" width={728} height={90} />
-                    <Adsense client="ca-pub-7832822790443742" slot="8" width={768} height={90} />
-                  </>
-                )}
-                {isLaptopView() && (
-                  <>
-                    <Adsense client="ca-pub-7832822790443742" slot="9" width={1024} height={90} />
-                    <Adsense client="ca-pub-7832822790443742" slot="10" width={1200} height={90} />
-                  </>
-                )}
-              </div>
+              {isMobileView() && (
+                <>
+                  <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+                  <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+                </>
+              )}
               {/* If there's content, display it */}
               {article.content && <p className="article-text mb-4">{article.content}</p>}
               <a href={`/article/${article.id}`} className="article-link text-blue-500 hover:underline">Read more</a>
