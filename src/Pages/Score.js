@@ -1,168 +1,81 @@
 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-const AdSenseAd = ({ slot, width, height }) => {
+// const AdSenseAd = ({ slot, width, height }) => {
+//   return (
+//     <div>
+//       <ins
+//         className="adsbygoogle"
+//         style={{ display: 'block' }}
+//         data-ad-client="ca-pub-7832822790443742"
+//         data-ad-slot={slot}
+//         data-ad-format="auto"
+//         data-full-width-responsive="true"
+//         width={width}
+//         height={height}
+//       ></ins>
+//       <script
+//         async
+//         src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+//       ></script>
+//     </div>
+//   );
+// };
+
+// const QuizApp = () => {
+
+//   return (
+//     <div className="max-w-lg mx-auto mt-8 mb-5 p-6 bg-white shadow-md rounded-lg">
+//       {/* Render AdSense ads */}
+//       <AdSenseAd slot="1" width={320} height={100} />
+//       <AdSenseAd slot="2" width={300} height={250} />
+
+    
+//     </div>
+//   );
+// };
+
+// export default QuizApp;
+import React from 'react';
+import AdSense from './Adsense';
+
+const articles = [
+  { id: 1, title: 'The Future of Mobile Technology', summary: '', imageUrl: 'https://images.unsplash.com/photo-1532356884227-66d7c0e9e4c2' },
+  { id: 2, title: 'Mobile Apps: The New Frontier', summary: '', imageUrl: 'https://plus.unsplash.com/premium_photo-1667055670870-5c9daa16a9a1' },
+  { id: 3, title: 'The Impact of AI on Mobile Technology', summary: '', imageUrl: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42' },
+  { id: 4, title: 'The Evolution of Wearable Technology', summary: '', imageUrl: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48' },
+  { id: 5, title: 'Mobile Gaming for Education', summary: '', imageUrl: 'https://images.unsplash.com/photo-1620283085439-39620a1e21c4' },
+  { id: 6, title: ' Emerging Technologies', summary: '', imageUrl: 'https://plus.unsplash.com/premium_photo-1684751595304-d8ae260ac98a' },
+];
+
+const ArticleList = () => {
   return (
-    <div>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-7832822790443742"
-        data-ad-slot={slot}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-        width={width}
-        height={height}
-      ></ins>
-      <script
-        async
-        src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      ></script>
-    </div>
-  );
-};
-
-const QuizApp = () => {
-  const questions = [
-    {
-      question: 'What is the capital of France?',
-      options: ['London', 'Paris', 'Berlin', 'Rome'],
-      answer: 'Paris',
-    },
-    {
-      question: 'What is the capital of France?',
-      options: ['London', 'Paris', 'Berlin', 'Rome'],
-      answer: 'Paris',
-    },
-    {
-      question: 'What is the capital of France?',
-      options: ['London', 'Paris', 'Berlin', 'Rome'],
-      answer: 'Paris',
-    },
-    {
-      question: 'What is the capital of France?',
-      options: ['London', 'Paris', 'Berlin', 'Rome'],
-      answer: 'Paris',
-    },
-    {
-      question: 'What is 2 + 2?',
-      options: ['3', '4', '5', '6'],
-      answer: '4',
-    },
-    // Add more questions here
-  ];
-
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [answerStatus, setAnswerStatus] = useState(null);
-  const [quizCompleted, setQuizCompleted] = useState(false);
-
-  const handleAnswer = (selectedOption) => {
-    if (selectedOption === questions[currentQuestion].answer) {
-      setScore(score + 1);
-      setAnswerStatus('correct');
-    } else {
-      setAnswerStatus('wrong');
-    }
-
-    setTimeout(() => {
-      setAnswerStatus(null);
-      if (currentQuestion + 1 < questions.length) {
-        setCurrentQuestion(currentQuestion + 1);
-      } else {
-        setQuizCompleted(true);
-      }
-    }, 1000);
-  };
-
-  const handlePrevious = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-      setAnswerStatus(null);
-    }
-  };
-
-  const handleSkip = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setAnswerStatus(null);
-    }
-  };
-
-  const restartQuiz = () => {
-    setCurrentQuestion(0);
-    setScore(0);
-    setQuizCompleted(false);
-  };
-
-  return (
-    <div className="max-w-lg mx-auto mt-8 mb-5 p-6 bg-white shadow-md rounded-lg">
-      {/* Render AdSense ads */}
-      <AdSenseAd slot="1" width={320} height={100} />
-      <AdSenseAd slot="2" width={300} height={250} />
-
-      {/* Rest of the QuizApp component */}
-      {quizCompleted ? (
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Quiz Completed!</h2>
-          <p className="text-gray-700">Your final score is: {score}</p>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg mt-4"
-            onClick={restartQuiz}
-          >
-            Restart Quiz
-          </button>
-        </div>
-      ) : (
-        <div>
-          <h2 className="text-2xl font-bold mb-6">Question {currentQuestion + 1}</h2>
-          <p className="text-gray-700 mt-4">Score: {score}</p>
-          <p className="text-lg mb-4">{questions[currentQuestion].question}</p>
-          <ul className="space-y-2">
-            {questions[currentQuestion].options.map((option, index) => (
-              <li key={index}>
-                <button
-                  className={`block w-full text-center ${
-                    answerStatus === 'correct' && option === questions[currentQuestion].answer
-                      ? 'bg-green-500 hover:bg-green-700'
-                      : answerStatus === 'wrong' && option === questions[currentQuestion].answer
-                      ? 'bg-red-500 hover:bg-red-700'
-                      : 'bg-gray-200 hover:bg-gray-300'
-                  } text-white font-semibold py-2 px-4 rounded-lg transition duration-200`}
-                  onClick={() => handleAnswer(option)}
-                  disabled={answerStatus !== null}
-                >
-                  {option}
-                </button>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-4 flex justify-between">
-            <button
-              className={`bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ${
-                currentQuestion === 0 ? 'cursor-not-allowed opacity-50' : ''
-              }`}
-              onClick={handlePrevious}
-              disabled={currentQuestion === 0 || answerStatus !== null}
-            >
-              Previous
-            </button>
-            <button
-              className={`bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 ${
-                currentQuestion === questions.length - 1 ? 'cursor-not-allowed opacity-50' : ''
-              }`}
-              onClick={handleSkip}
-              disabled={currentQuestion === questions.length - 1 || answerStatus !== null}
-            >
-              Skip
-            </button>
+    <div className="p-4 flex flex-wrap justify-between mx-2 ">
+      {articles.map((article) => (
+        <div key={article.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+          <div className="article bg-white rounded-lg shadow-lg p-4 mb-4">
+            <img src={article.imageUrl} alt={article.title} className="article-image mb-4 w-full h-auto" />
+            <div className="article-content">
+              <h2 className="article-title text-xl font-bold mb-2">{article.title}</h2>
+              <p className="article-summary mb-2">{article.summary}</p>
+              <AdSense/>
+              {/* If there's content, display it */}
+              {article.content && <p className="article-text mb-4">{article.content}</p>}
+              <a href={`/article/${article.id}`} className="article-link text-blue-500 hover:underline">Read more</a>
+            </div>
           </div>
-          {answerStatus === 'correct' && <p className="text-green-600 mt-4">Correct!</p>}
-          {answerStatus === 'wrong' && <p className="text-red-600 mt-4">Wrong!</p>}
+          {/* Set fixed size for images */}
+          <style jsx>{`
+            .article-image {
+              width: 100%; /* Ensure image takes full width of its container */
+              height: 200px; /* Set a fixed height for the image */
+              object-fit: cover; /* Maintain aspect ratio and crop image if necessary */
+            }
+          `}</style>
         </div>
-      )}
+      ))}
     </div>
   );
 };
 
-export default QuizApp;
+export default ArticleList;

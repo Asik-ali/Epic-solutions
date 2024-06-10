@@ -9,6 +9,7 @@ import Client from "./Pages/Client";
 import Carrer from "./Pages/Carrer";
 import Services from "./Pages/Services";
 import Score from "./Pages/Score";
+import ArticlePage from "./Pages/Article";
 // import Sitemap from "./sitemap";
 
 function App() {
@@ -47,7 +48,8 @@ function App() {
           <Footer />
         </>} />
         {/* This route renders without Navbar and Footer */}
-        <Route path="/score" element={<Score />} />
+        <Route path="/score" element={ <><Navbar /><Score />  <Footer /></>} />
+        <Route path="/article/:id" element={<><Navbar /><ArticlePage />  <Footer /></>} />
         {/* <Route path="/sitemap.xml" element={<Sitemap />} /> */}
       </Routes>
     </BrowserRouter>
