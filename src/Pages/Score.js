@@ -1,43 +1,7 @@
 
-// import React, { useState } from 'react';
-
-// const AdSenseAd = ({ slot, width, height }) => {
-//   return (
-//     <div>
-//       <ins
-//         className="adsbygoogle"
-//         style={{ display: 'block' }}
-//         data-ad-client="ca-pub-7832822790443742"
-//         data-ad-slot={slot}
-//         data-ad-format="auto"
-//         data-full-width-responsive="true"
-//         width={width}
-//         height={height}
-//       ></ins>
-//       <script
-//         async
-//         src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-//       ></script>
-//     </div>
-//   );
-// };
-
-// const QuizApp = () => {
-
-//   return (
-//     <div className="max-w-lg mx-auto mt-8 mb-5 p-6 bg-white shadow-md rounded-lg">
-//       {/* Render AdSense ads */}
-//       <AdSenseAd slot="1" width={320} height={100} />
-//       <AdSenseAd slot="2" width={300} height={250} />
-
-    
-//     </div>
-//   );
-// };
-
-// export default QuizApp;
 import React from 'react';
-import AdSense from './Adsense';
+import GoogleAd from './Adsense';
+import Adsense from './Adsense';
 
 const articles = [
   { id: 1, title: 'The Future of Mobile Technology', summary: '', imageUrl: 'https://images.unsplash.com/photo-1532356884227-66d7c0e9e4c2' },
@@ -49,6 +13,13 @@ const articles = [
 ];
 
 const ArticleList = () => {
+  const isTabletView = () => {
+    return window.innerWidth >= 768 && window.innerWidth < 1024; // Assuming tablet width range
+  };
+
+  const isLaptopView = () => {
+    return window.innerWidth >= 1024; // Assuming laptop width range
+  };
   return (
     <div className="p-4 flex flex-wrap justify-between mx-2 ">
       {articles.map((article) => (
@@ -58,7 +29,22 @@ const ArticleList = () => {
             <div className="article-content">
               <h2 className="article-title text-xl font-bold mb-2">{article.title}</h2>
               <p className="article-summary mb-2">{article.summary}</p>
-              <AdSense/>
+              <div className='flex justify-evenly flex-wrap'>
+                <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+                <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+                {isTabletView() && (
+                  <>
+                    <Adsense client="ca-pub-7832822790443742" slot="7" width={728} height={90} />
+                    <Adsense client="ca-pub-7832822790443742" slot="8" width={768} height={90} />
+                  </>
+                )}
+                {isLaptopView() && (
+                  <>
+                    <Adsense client="ca-pub-7832822790443742" slot="9" width={1024} height={90} />
+                    <Adsense client="ca-pub-7832822790443742" slot="10" width={1200} height={90} />
+                  </>
+                )}
+              </div>
               {/* If there's content, display it */}
               {article.content && <p className="article-text mb-4">{article.content}</p>}
               <a href={`/article/${article.id}`} className="article-link text-blue-500 hover:underline">Read more</a>

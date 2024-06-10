@@ -6,7 +6,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Adsense from "../../Pages/Adsense";
 function Footer() {
- 
+
   return (
     <div>
       <footer className="bg-[#8D99AE] ">
@@ -149,15 +149,15 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className='flex justify-evenly flex-wrap'>
-        {/* <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} /> */}
-        {/* <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} /> */}
-        <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
-        <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
-        <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
-        <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
-        
-      </div>
+        {/* <div className='flex justify-evenly flex-wrap'> */}
+          {/* <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} /> */}
+          {/* <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} /> */}
+          {/* <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+          <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+          <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+          <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+
+        </div> */}
         <p className="text-lg text-center p-3 bg-black w-full text-white">
           &copy; 2024. Epic Solution. All rights reserved.
         </p>

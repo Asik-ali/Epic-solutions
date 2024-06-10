@@ -1,16 +1,17 @@
 // components/ArticlePage.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Adsense from './Adsense';
 // import ArticleSidebar from './ArticleSidebar';
 // import { Helmet } from 'react-helmet-async';
 
 
 const articles = [
-  {
-    id: 1,
-    author: "Itel",
-    title: 'The Future of Mobile Technology',
-    content: `
+    {
+        id: 1,
+        author: "Itel",
+        title: 'The Future of Mobile Technology',
+        content: `
       <p class="mb-6">Mobile technology hasundergone a remarkable evolution over the past few decades, revolutionizing the way we communicate, work, and navigate daily life. From the introduction of the first cell phones to the era of smartphones and beyond, the trajectory of mobile technology has been marked by innovation and rapid advancement. As we look to the future, the landscape of mobile technology is poised for further transformation, driven by emerging trends and cutting-edge developments. This article explores the exciting possibilities and potential challenges shaping the future of mobile technology.</p>
 
       <h2 class="text-lg font-semibold my-4">Emerging Technologies :</h2>
@@ -53,13 +54,13 @@ const articles = [
       <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
       <p class="mb-6">The future of mobile technology is brimming with promise and potential, driven by a convergence of emerging technologies and evolving user expectations. From the widespread adoption of 5G networks to the proliferation of IoT devices and AI-powered applications, the mobile landscape is undergoing a period of unprecedented innovation and transformation. However, as we embrace these advancements, it is essential to remain vigilant about the ethical, social, and environmental implications of mobile technology. By harnessing the power of technology responsibly and inclusively, we can build a future where mobile connectivity enriches lives and strengthens communities around the globe.</p>
     `,
-    imageUrl: 'https://images.unsplash.com/photo-1532356884227-66d7c0e9e4c2'
-  },
-  {
-    id: 2,
-    author: "Itel",
-    title: 'Mobile Apps: The New Frontier',
-    content: `
+        imageUrl: 'https://images.unsplash.com/photo-1532356884227-66d7c0e9e4c2'
+    },
+    {
+        id: 2,
+        author: "Itel",
+        title: 'Mobile Apps: The New Frontier',
+        content: `
     <p class="mb-6">Artificial Intelligence (AI) has emerged as a driving force behind transformative advancements in mobile technology, reshaping how we interact with our devices and the world around us. From personalized virtual assistants to predictive analytics and autonomous functionalities, AI is revolutionizing the capabilities of mobile devices and enhancing user experiences in unprecedented ways. This article explores the profound impact of AI on mobile technology, examining the opportunities and challenges it presents for both developers and consumers.</p>
 
     <h2 class="text-lg font-semibold my-4">Enhanced User Experiences :</h2>
@@ -103,13 +104,13 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">The integration of AI into mobile technology heralds a new era of connectivity and user experience, transforming how we interact with our devices and the world around us. From personalized recommendations and intelligent virtual assistants to optimized performance and contextual awareness, AI-driven innovations are enhancing the capabilities of mobile devices and empowering users in unprecedented ways. However, as we embrace the potential of AI in mobile technology, it is essential to address ethical considerations and ensure that AI-powered applications prioritize user privacy, fairness, and transparency. By harnessing the power of AI responsibly and innovatively, we can unlock new possibilities for mobile technology and create more intelligent, intuitive, and inclusive experiences for users worldwide.</p>
   `,
-    imageUrl: 'https://plus.unsplash.com/premium_photo-1667055670870-5c9daa16a9a1'
-  },
-  {
-    id: 3,
-    author: "Itel",
-    title: 'The Impact of AI on Mobile Technology',
-    content: `
+        imageUrl: 'https://plus.unsplash.com/premium_photo-1667055670870-5c9daa16a9a1'
+    },
+    {
+        id: 3,
+        author: "Itel",
+        title: 'The Impact of AI on Mobile Technology',
+        content: `
     <p class="mb-6"></p>
 
     <h2 class="text-lg font-semibold my-4"></h2>
@@ -150,13 +151,13 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6"></p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42'
-  },
-  {
-    id: 4,
-    author: "Itel",
-    title: 'The Evolution of Wearable Technology',
-    content: `
+        imageUrl: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42'
+    },
+    {
+        id: 4,
+        author: "Itel",
+        title: 'The Evolution of Wearable Technology',
+        content: `
     <p class="mb-6">Wearable technology has transcended its status as a novelty and has seamlessly integrated into our daily lives, becoming an indispensable part of how we monitor health, stay connected, and interact with the world around us. This article delves into the evolutionary journey of wearable technology, tracing its origins, highlighting key milestones, and exploring its transformative impact on various aspects of our lives.</p>
 
     <h2 class="text-lg font-semibold my-4">Early Beginnings and Technological Advancements :</h2>
@@ -194,13 +195,13 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">The evolution of wearable technology from novelty to necessity reflects its transformative impact on how we monitor health, stay connected, and interact with the world around us. From early fitness trackers to sophisticated smartwatches and AR glasses, wearables have become integral to our daily lives, empowering individuals to lead healthier, more connected, and productive lifestyles. However, as wearable technology continues to evolve, it is essential to address challenges related to data privacy, interoperability, and sustainability to ensure that wearables fulfill their potential as tools for improving health outcomes, enhancing user experiences, and driving positive social and environmental change.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48'
-  },
-  {
-    id: 5,
-    author: "Itel",
-    title: 'Mobile Gaming for Education',
-    content: `
+        imageUrl: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48'
+    },
+    {
+        id: 5,
+        author: "Itel",
+        title: 'Mobile Gaming for Education',
+        content: `
     <p class="mb-6">In recent years, mobile gaming has emerged as a powerful tool for education, leveraging the immersive and interactive nature of games to engage learners in new and innovative ways. This article explores the transformative potential of mobile gaming for education, examining how it enhances learning outcomes, fosters collaboration, and promotes critical thinking skills in students of all ages.</p>
 
     <h2 class="text-lg font-semibold my-4">Engaging and Interactive Learning Experiences :</h2>
@@ -238,14 +239,14 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile gaming has the power to revolutionize education by providing engaging, interactive, and personalized learning experiences for students of all ages. From immersive simulations to collaborative problem-solving activities, educational games offer unique opportunities to enhance learning outcomes and prepare students for success in the digital age. By embracing mobile gaming as a tool for education and addressing challenges related to accessibility and integration, educators can unlock the full potential of this innovative approach to teaching and learning.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1620283085439-39620a1e21c4'
-  },
-  {
-    id: 6,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1620283085439-39620a1e21c4'
+    },
+    {
+        id: 6,
+        author: "Itel",
 
-    title: 'Emerging Technologies',
-    content: `
+        title: 'Emerging Technologies',
+        content: `
     <p class="mb-6">In the ever-expanding landscape of digital technology, mobile apps have emerged as the new frontier of innovation, transforming how we interact with information, services, and each other. This article delves into the dynamic world of mobile apps, exploring their impact on various industries, the evolving trends shaping their development, and the opportunities they present for businesses and consumers alike.</p>
 
     <h2 class="text-lg font-semibold my-4">Empowering Industries Across the Spectrum :</h2>
@@ -286,14 +287,14 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile apps have become the cornerstone of digital innovation, empowering industries, businesses, and consumers with unprecedented levels of connectivity, convenience, and customization. From revolutionizing retail and healthcare to transforming education and entertainment, apps are reshaping the way we live, work, and interact in an increasingly digital world. By embracing emerging trends and technologies, addressing challenges, and fostering a culture of innovation, businesses and developers can harness the full potential of mobile apps to drive positive change and shape the future of digital experiences.</p>
   `,
-    imageUrl: 'https://plus.unsplash.com/premium_photo-1684751595304-d8ae260ac98a'
-  },
-  {
-    id: 7,
-    author: "Itel",
+        imageUrl: 'https://plus.unsplash.com/premium_photo-1684751595304-d8ae260ac98a'
+    },
+    {
+        id: 7,
+        author: "Itel",
 
-    title: 'The Impact of Mobile Commerce',
-    content: `
+        title: 'The Impact of Mobile Commerce',
+        content: `
     <p class="mb-6">Mobile commerce, or m-commerce, has revolutionized the way we shop, transforming smartphones into portable storefronts that allow consumers to browse, purchase, and interact with brands anytime, anywhere. This article explores the profound impact of mobile commerce on businesses, consumers, and the retail landscape, examining how it has reshaped consumer behavior, accelerated digital transformation, and unlocked new opportunities for growth and innovation.</p>
 
     <h2 class="text-lg font-semibold my-4">Empowering Consumers with Convenience :</h2>
@@ -332,14 +333,14 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile commerce has transformed the retail landscape, empowering consumers with unprecedented convenience, personalization, and access to a vast array of products and services at their fingertips. From streamlining checkout processes to unlocking new opportunities for global expansion and innovation, m-commerce has become a driving force behind digital transformation in the retail industry, reshaping how businesses engage with customers and drive growth in the digital age. As mobile commerce continues to evolve and expand, retailers must embrace emerging trends, address challenges, and prioritize user experience and security to stay competitive and capitalize on the boundless opportunities that mobile commerce presents for the future of retail.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48'
-  },
-  {
-    id: 8,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48'
+    },
+    {
+        id: 8,
+        author: "Itel",
 
-    title: 'Mobile App Design Principles',
-    content: `
+        title: 'Mobile App Design Principles',
+        content: `
     <p class="mb-6">Mobile app design is a critical aspect of creating successful digital experiences, as it directly impacts how users interact with and perceive an app. This article explores key design principles that guide the development of intuitive, user-friendly, and visually appealing mobile applications, ensuring that they meet the needs and expectations of modern consumers in an increasingly competitive marketplace.</p>
 
     <h2 class="text-base text-start font-semibold my-4">User-Centric Design :</h2>
@@ -374,14 +375,14 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile app design principles serve as guiding frameworks for creating intuitive, engaging, and user-friendly experiences that meet the needs and expectations of modern consumers. By prioritizing user-centricity, simplicity, consistency, accessibility, and performance, designers can create mobile applications that not only delight users but also drive business success and competitive advantage in an increasingly mobile-first world. As technology and user preferences continue to evolve, embracing these design principles will remain essential for delivering exceptional mobile experiences that stand out in a crowded marketplace and foster long-term user loyalty and satisfaction.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1544725121-be3bf52e2dc8'
-  },
-  {
-    id: 9,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1544725121-be3bf52e2dc8'
+    },
+    {
+        id: 9,
+        author: "Itel",
 
-    title: 'Foldable Phones: A New Era ',
-    content: `
+        title: 'Foldable Phones: A New Era ',
+        content: `
     <p class="mb-6">Foldable phones represent the next significant leap in mobile technology, blending the compactness of smartphones with the expansive displays of tablets. This article explores the evolution, technology, and impact of foldable phones, examining their benefits, challenges, and the future of this innovative segment in the mobile industry.</p>
 
     <h2 class="text-lg font-semibold my-4">he Evolution of Foldable Phones :</h2>
@@ -423,14 +424,14 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Foldable phones represent a groundbreaking development in mobile technology, offering a unique blend of portability and expansive display capabilities. As the technology evolves, foldable devices are poised to redefine user expectations and experiences, paving the way for new innovations and applications in the mobile industry. By addressing challenges related to durability, cost, and app support, manufacturers can unlock the full potential of foldable phones, ushering in a new era of mobile innovation that enhances productivity, entertainment, and connectivity in our increasingly digital lives.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1599050751791-a3d0feff527b'
-  },
-  {
-    id: 10,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1599050751791-a3d0feff527b'
+    },
+    {
+        id: 10,
+        author: "Itel",
 
-    title: 'Smartphone Customization',
-    content: `
+        title: 'Smartphone Customization',
+        content: `
     <p class="mb-6">Smartphone customization allows users to personalize their devices to match their individual preferences, needs, and lifestyles. From altering visual aesthetics and optimizing user interfaces to installing custom software and enhancing functionality, customization offers endless possibilities for transforming smartphones into truly personalized tools. This article explores various aspects of smartphone customization, including themes, widgets, apps, settings, and advanced modifications, providing insights into how you can tailor your device to fit your unique style and requirements.</p>
 
     <h2 class="text-lg font-semibold my-4">Visual Customization: Aesthetic and Functional Personalization (H3)</h2>
@@ -473,14 +474,14 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Smartphone customization offers a wealth of possibilities for personalizing your device to fit your lifestyle, enhancing both aesthetics and functionality. Whether you're optimizing your home screen layout, managing notifications, or exploring advanced modifications, customization empowers you to create a smartphone experience that is uniquely yours. By leveraging the diverse tools and features available for visual, functional, and performance customization, you can transform your device into a powerful and personalized tool that adapts to your needs and preferences, making your daily interactions more enjoyable and efficient.  </p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c'
-  },
-  {
-    id: 11,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c'
+    },
+    {
+        id: 11,
+        author: "Itel",
 
-    title: 'Mobile Productivity Hacks',
-    content: `
+        title: 'Mobile Productivity Hacks',
+        content: `
     <p class="mb-6">In today's fast-paced world, mobile devices have become indispensable tools for staying productive and organized, whether you're working remotely, traveling, or simply managing your daily tasks on the go. This article explores a variety of mobile productivity hacks—tips, tricks, and apps—that can help you maximize efficiency, streamline workflows, and make the most of your time, wherever you are.</p>
 
     <h2 class="text-lg font-semibold my-4">Organize Your Digital Workspace :</h2>
@@ -518,14 +519,14 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile productivity hacks offer practical strategies and tools for maximizing efficiency and effectiveness in today's fast-paced digital world. Whether it's organizing your digital workspace, streamlining task management, leveraging automation and shortcuts, staying focused, or embracing productivity apps, these tips and tricks can help you make the most of your mobile device and stay productive wherever life takes you. By incorporating these hacks into your daily routine and adapting them to your unique workflow and preferences, you can unlock new levels of productivity and achieve your goals with ease.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1622782914767-404fb9ab3f57'
-  },
-  {
-    id: 12,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1622782914767-404fb9ab3f57'
+    },
+    {
+        id: 12,
+        author: "Itel",
 
-    title: 'Social Media Evolution',
-    content: `
+        title: 'Social Media Evolution',
+        content: `
     <p class="mb-6">Social media has undergone a dramatic transformation since its inception, evolving from simple platforms for personal communication to sophisticated ecosystems that shape how we connect, share, and engage with the world. This article traces the history of social media, explores key milestones and innovations, and examines how emerging trends and technologies are redefining the social media landscape.</p>
 
     <h2 class="text-lg font-semibold my-4">The Birth of Social Media: Early Networks and Digital Communities :</h2>
@@ -566,14 +567,14 @@ const articles = [
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">The evolution of social media reflects the rapid pace of technological advancement and changing user behaviors. From early networks focused on basic communication to sophisticated platforms offering immersive experiences and integrated services, social media has become an integral part of modern life. As we look to the future, social media will continue to evolve, driven by emerging technologies, user demands, and regulatory considerations, shaping how we connect, share, and interact in an increasingly digital world. Embracing these changes will enable users and businesses to navigate the dynamic landscape of social media, harnessing its potential for communication, creativity, and connection.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3'
-  },
-  {
-    id: 13,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3'
+    },
+    {
+        id: 13,
+        author: "Itel",
 
-    title: 'Mobile Live Streaming',
-    content: `
+        title: 'Mobile Live Streaming',
+        content: `
     <p class="mb-6">Mobile live streaming has transformed the way we share experiences, connect with audiences, and consume content in real time. From social interactions to brand marketing and news broadcasting, mobile live streaming offers dynamic opportunities for engagement and interaction. This article delves into the evolution of mobile live streaming, explores its impact on various sectors, and provides insights into how to effectively leverage this powerful tool for real-time engagement.</p>
 
     <h2 class="text-lg font-semibold my-4">The Evolution of Mobile Live Streaming :</h2>
@@ -617,14 +618,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile live streaming has revolutionized how we share, connect, and engage in real time, offering dynamic opportunities for social interaction, content creation, and brand engagement. As technology continues to advance, mobile live streaming will evolve, providing even more immersive and interactive experiences. By understanding its benefits, challenges, and best practices, users can harness the power of mobile live streaming to build authentic connections, reach wider audiences, and create compelling, real-time content that resonates in today’s digital age.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1666636059677-fd22a7e94e0b'
-  },
-  {
-    id: 14,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1666636059677-fd22a7e94e0b'
+    },
+    {
+        id: 14,
+        author: "Itel",
 
-    title: 'Mobile Payment Systems',
-    content: `
+        title: 'Mobile Payment Systems',
+        content: `
     <p class="mb-6">Mobile payment systems have revolutionized the way we conduct financial transactions, providing seamless, secure, and convenient ways to make payments using smartphones and other mobile devices. From contactless payments to peer-to-peer transfers and digital wallets, mobile payment technologies have become integral to everyday commerce. This article explores the evolution of mobile payment systems, their impact on consumers and businesses, and the future trends shaping this dynamic sector.</p>
 
     <h2 class="text-lg font-semibold my-4">The Evolution of Mobile Payment Systems</h2>
@@ -672,14 +673,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile payment systems have transformed the way we conduct financial transactions, offering convenient, secure, and versatile solutions for making payments and managing finances. As technology continues to evolve, mobile payment systems will play an increasingly important role in everyday commerce, enhancing user experiences and driving financial inclusion. By understanding their benefits, challenges, and emerging trends, consumers and businesses can leverage mobile payment systems to navigate the dynamic landscape of digital transactions, embracing the future of cashless and connected commerce.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1600194991235-16e332d5302f'
-  },
-  {
-    id: 15,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1600194991235-16e332d5302f'
+    },
+    {
+        id: 15,
+        author: "Itel",
 
-    title: 'The Evolution Technology',
-    content: `
+        title: 'The Evolution Technology',
+        content: `
     <p class="mb-6">Wearable technology has transcended its status as a novelty and has seamlessly integrated into our daily lives, becoming an indispensable part of how we monitor health, stay connected, and interact with the world around us. This article delves into the evolutionary journey of wearable technology, tracing its origins, highlighting key milestones, and exploring its transformative impact on various aspects of our lives.</p>
 
     <h2 class="text-lg font-semibold my-4">Early Beginnings and Technological Advancements :</h2>
@@ -717,14 +718,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">The evolution of wearable technology from novelty to necessity reflects its transformative impact on how we monitor health, stay connected, and interact with the world around us. From early fitness trackers to sophisticated smartwatches and AR glasses, wearables have become integral to our daily lives, empowering individuals to lead healthier, more connected, and productive lifestyles. However, as wearable technology continues to evolve, it is essential to address challenges related to data privacy, interoperability, and sustainability to ensure that wearables fulfill their potential as tools for improving health outcomes, enhancing user experiences, and driving positive social and environmental change.</p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 16,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 16,
+        author: "Itel",
 
-    title: 'Foldable - A Golden Era ',
-    content: `
+        title: 'Foldable - A Golden Era ',
+        content: `
     <p class="mb-6">Foldable phones represent the next significant leap in mobile technology, blending the compactness of smartphones with the expansive displays of tablets. This article explores the evolution, technology, and impact of foldable phones, examining their benefits, challenges, and the future of this innovative segment in the mobile industry.</p>
 
     <h2 class="text-lg font-semibold my-4">he Evolution of Foldable Phones :</h2>
@@ -766,15 +767,15 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Foldable phones represent a groundbreaking development in mobile technology, offering a unique blend of portability and expansive display capabilities. As the technology evolves, foldable devices are poised to redefine user expectations and experiences, paving the way for new innovations and applications in the mobile industry. By addressing challenges related to durability, cost, and app support, manufacturers can unlock the full potential of foldable phones, ushering in a new era of mobile innovation that enhances productivity, entertainment, and connectivity in our increasingly digital lives.</p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
+        imageUrl: 'https://via.placeholder.com/400'
+    },
 
-  {
-    id: 17,
-    author: "Itel",
+    {
+        id: 17,
+        author: "Itel",
 
-    title: 'The Impact of AI',
-    content: `
+        title: 'The Impact of AI',
+        content: `
     <p class="mb-6"></p>
 
     <h2 class="text-lg font-semibold my-4"></h2>
@@ -815,14 +816,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6"></p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 18,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 18,
+        author: "Itel",
 
-    title: 'Mobile App Designs',
-    content: `
+        title: 'Mobile App Designs',
+        content: `
     <p class="mb-6">Mobile app design is a critical aspect of creating successful digital experiences, as it directly impacts how users interact with and perceive an app. This article explores key design principles that guide the development of intuitive, user-friendly, and visually appealing mobile applications, ensuring that they meet the needs and expectations of modern consumers in an increasingly competitive marketplace.</p>
 
     <h2 class="text-base text-start font-semibold my-4">User-Centric Design :</h2>
@@ -857,14 +858,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile app design principles serve as guiding frameworks for creating intuitive, engaging, and user-friendly experiences that meet the needs and expectations of modern consumers. By prioritizing user-centricity, simplicity, consistency, accessibility, and performance, designers can create mobile applications that not only delight users but also drive business success and competitive advantage in an increasingly mobile-first world. As technology and user preferences continue to evolve, embracing these design principles will remain essential for delivering exceptional mobile experiences that stand out in a crowded marketplace and foster long-term user loyalty and satisfaction.</p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 19,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 19,
+        author: "Itel",
 
-    title: 'Mobile Gaming',
-    content: `
+        title: 'Mobile Gaming',
+        content: `
     <p class="mb-6">In recent years, mobile gaming has emerged as a powerful tool for education, leveraging the immersive and interactive nature of games to engage learners in new and innovative ways. This article explores the transformative potential of mobile gaming for education, examining how it enhances learning outcomes, fosters collaboration, and promotes critical thinking skills in students of all ages.</p>
 
     <h2 class="text-lg font-semibold my-4">Engaging and Interactive Learning Experiences :</h2>
@@ -902,15 +903,15 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile gaming has the power to revolutionize education by providing engaging, interactive, and personalized learning experiences for students of all ages. From immersive simulations to collaborative problem-solving activities, educational games offer unique opportunities to enhance learning outcomes and prepare students for success in the digital age. By embracing mobile gaming as a tool for education and addressing challenges related to accessibility and integration, educators can unlock the full potential of this innovative approach to teaching and learning.</p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
+        imageUrl: 'https://via.placeholder.com/400'
+    },
 
-  {
-    id: 20,
-    author: "Itel",
+    {
+        id: 20,
+        author: "Itel",
 
-    title: 'Wearable Integration',
-    content: `
+        title: 'Wearable Integration',
+        content: `
     <p class="mb-6">Wearable integration has emerged as a pivotal trend in the ever-expanding digital landscape, offering seamless connectivity between wearable devices and other technologies. From health and fitness tracking to smart home control and augmented reality experiences, the integration of wearables with various platforms and applications has revolutionized how we interact with technology. This article explores the evolution of wearable integration, its applications across different sectors, and the implications for user experience and innovation.</p>
 
     <h2 class="text-lg font-semibold my-4">The Evolution of Wearable Integration </h2>
@@ -951,15 +952,15 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Wearable integration represents a paradigm shift in how we interact with technology, offering seamless connectivity, personalized experiences, and enhanced capabilities across various domains. As wearables continue to evolve and integrate with other technologies, they will play an increasingly central role in shaping the digital ecosystem. By addressing challenges related to privacy, interoperability, and performance, stakeholders can unlock the full potential of wearable integration, driving innovation and improving the quality of life for users in the digital age.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1663691679737-d284e13f1aa2'
-  },
+        imageUrl: 'https://images.unsplash.com/photo-1663691679737-d284e13f1aa2'
+    },
 
-  {
-    id: 21,
-    author: "Itel",
+    {
+        id: 21,
+        author: "Itel",
 
-    title: 'Social Media Effects',
-    content: `
+        title: 'Social Media Effects',
+        content: `
     <p class="mb-6">Social media has undergone a dramatic transformation since its inception, evolving from simple platforms for personal communication to sophisticated ecosystems that shape how we connect, share, and engage with the world. This article traces the history of social media, explores key milestones and innovations, and examines how emerging trends and technologies are redefining the social media landscape.</p>
 
     <h2 class="text-lg font-semibold my-4">The Birth of Social Media: Early Networks and Digital Communities :</h2>
@@ -1000,14 +1001,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">The evolution of social media reflects the rapid pace of technological advancement and changing user behaviors. From early networks focused on basic communication to sophisticated platforms offering immersive experiences and integrated services, social media has become an integral part of modern life. As we look to the future, social media will continue to evolve, driven by emerging technologies, user demands, and regulatory considerations, shaping how we connect, share, and interact in an increasingly digital world. Embracing these changes will enable users and businesses to navigate the dynamic landscape of social media, harnessing its potential for communication, creativity, and connection.</p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 22,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 22,
+        author: "Itel",
 
-    title: 'The Future of Mobile ',
-    content: `
+        title: 'The Future of Mobile ',
+        content: `
       <p class="mb-6">Mobile technology hasundergone a remarkable evolution over the past few decades, revolutionizing the way we communicate, work, and navigate daily life. From the introduction of the first cell phones to the era of smartphones and beyond, the trajectory of mobile technology has been marked by innovation and rapid advancement. As we look to the future, the landscape of mobile technology is poised for further transformation, driven by emerging trends and cutting-edge developments. This article explores the exciting possibilities and potential challenges shaping the future of mobile technology.</p>
 
       <h2 class="text-lg font-semibold my-4">Emerging Technologies :</h2>
@@ -1050,14 +1051,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
       <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
       <p class="mb-6">The future of mobile technology is brimming with promise and potential, driven by a convergence of emerging technologies and evolving user expectations. From the widespread adoption of 5G networks to the proliferation of IoT devices and AI-powered applications, the mobile landscape is undergoing a period of unprecedented innovation and transformation. However, as we embrace these advancements, it is essential to remain vigilant about the ethical, social, and environmental implications of mobile technology. By harnessing the power of technology responsibly and inclusively, we can build a future where mobile connectivity enriches lives and strengthens communities around the globe.</p>
     `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 23,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 23,
+        author: "Itel",
 
-    title: 'Mobile Hacks',
-    content: `
+        title: 'Mobile Hacks',
+        content: `
     <p class="mb-6">In today's fast-paced world, mobile devices have become indispensable tools for staying productive and organized, whether you're working remotely, traveling, or simply managing your daily tasks on the go. This article explores a variety of mobile productivity hacks—tips, tricks, and apps—that can help you maximize efficiency, streamline workflows, and make the most of your time, wherever you are.</p>
 
     <h2 class="text-lg font-semibold my-4">Organize Your Digital Workspace :</h2>
@@ -1095,15 +1096,15 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile productivity hacks offer practical strategies and tools for maximizing efficiency and effectiveness in today's fast-paced digital world. Whether it's organizing your digital workspace, streamlining task management, leveraging automation and shortcuts, staying focused, or embracing productivity apps, these tips and tricks can help you make the most of your mobile device and stay productive wherever life takes you. By incorporating these hacks into your daily routine and adapting them to your unique workflow and preferences, you can unlock new levels of productivity and achieve your goals with ease.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1622782914767-404fb9ab3f57'
-  },
+        imageUrl: 'https://images.unsplash.com/photo-1622782914767-404fb9ab3f57'
+    },
 
-  {
-    id: 24,
-    author: "Itel",
+    {
+        id: 24,
+        author: "Itel",
 
-    title: 'Mobile Apps',
-    content: `
+        title: 'Mobile Apps',
+        content: `
     <p class="mb-6">In the ever-expanding landscape of digital technology, mobile apps have emerged as the new frontier of innovation, transforming how we interact with information, services, and each other. This article delves into the dynamic world of mobile apps, exploring their impact on various industries, the evolving trends shaping their development, and the opportunities they present for businesses and consumers alike.</p>
 
     <h2 class="text-lg font-semibold my-4">Empowering Industries Across the Spectrum :</h2>
@@ -1144,14 +1145,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile apps have become the cornerstone of digital innovation, empowering industries, businesses, and consumers with unprecedented levels of connectivity, convenience, and customization. From revolutionizing retail and healthcare to transforming education and entertainment, apps are reshaping the way we live, work, and interact in an increasingly digital world. By embracing emerging trends and technologies, addressing challenges, and fostering a culture of innovation, businesses and developers can harness the full potential of mobile apps to drive positive change and shape the future of digital experiences.</p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 25,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 25,
+        author: "Itel",
 
-    title: 'Smartphone Assembled',
-    content: `
+        title: 'Smartphone Assembled',
+        content: `
     <p class="mb-6">Smartphone customization allows users to personalize their devices to match their individual preferences, needs, and lifestyles. From altering visual aesthetics and optimizing user interfaces to installing custom software and enhancing functionality, customization offers endless possibilities for transforming smartphones into truly personalized tools. This article explores various aspects of smartphone customization, including themes, widgets, apps, settings, and advanced modifications, providing insights into how you can tailor your device to fit your unique style and requirements.</p>
 
     <h2 class="text-lg font-semibold my-4">Visual Customization: Aesthetic and Functional Personalization (H3)</h2>
@@ -1194,14 +1195,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Smartphone customization offers a wealth of possibilities for personalizing your device to fit your lifestyle, enhancing both aesthetics and functionality. Whether you're optimizing your home screen layout, managing notifications, or exploring advanced modifications, customization empowers you to create a smartphone experience that is uniquely yours. By leveraging the diverse tools and features available for visual, functional, and performance customization, you can transform your device into a powerful and personalized tool that adapts to your needs and preferences, making your daily interactions more enjoyable and efficient.  </p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 26,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 26,
+        author: "Itel",
 
-    title: 'Mobile Live Streaming',
-    content: `
+        title: 'Mobile Live Streaming',
+        content: `
     <p class="mb-6">Mobile live streaming has transformed the way we share experiences, connect with audiences, and consume content in real time. From social interactions to brand marketing and news broadcasting, mobile live streaming offers dynamic opportunities for engagement and interaction. This article delves into the evolution of mobile live streaming, explores its impact on various sectors, and provides insights into how to effectively leverage this powerful tool for real-time engagement.</p>
 
     <h2 class="text-lg font-semibold my-4">The Evolution of Mobile Live Streaming :</h2>
@@ -1245,14 +1246,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile live streaming has revolutionized how we share, connect, and engage in real time, offering dynamic opportunities for social interaction, content creation, and brand engagement. As technology continues to advance, mobile live streaming will evolve, providing even more immersive and interactive experiences. By understanding its benefits, challenges, and best practices, users can harness the power of mobile live streaming to build authentic connections, reach wider audiences, and create compelling, real-time content that resonates in today’s digital age.</p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 27,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 27,
+        author: "Itel",
 
-    title: 'The Impact of E-Commerce',
-    content: `
+        title: 'The Impact of E-Commerce',
+        content: `
     <p class="mb-6">Mobile commerce, or m-commerce, has revolutionized the way we shop, transforming smartphones into portable storefronts that allow consumers to browse, purchase, and interact with brands anytime, anywhere. This article explores the profound impact of mobile commerce on businesses, consumers, and the retail landscape, examining how it has reshaped consumer behavior, accelerated digital transformation, and unlocked new opportunities for growth and innovation.</p>
 
     <h2 class="text-lg font-semibold my-4">Empowering Consumers with Convenience :</h2>
@@ -1291,14 +1292,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile commerce has transformed the retail landscape, empowering consumers with unprecedented convenience, personalization, and access to a vast array of products and services at their fingertips. From streamlining checkout processes to unlocking new opportunities for global expansion and innovation, m-commerce has become a driving force behind digital transformation in the retail industry, reshaping how businesses engage with customers and drive growth in the digital age. As mobile commerce continues to evolve and expand, retailers must embrace emerging trends, address challenges, and prioritize user experience and security to stay competitive and capitalize on the boundless opportunities that mobile commerce presents for the future of retail.</p>
   `,
-    imageUrl: 'https://via.placeholder.com/400'
-  },
-  {
-    id: 28,
-    author: "Itel",
+        imageUrl: 'https://via.placeholder.com/400'
+    },
+    {
+        id: 28,
+        author: "Itel",
 
-    title: 'The Evolution of Mobile Payment',
-    content: `
+        title: 'The Evolution of Mobile Payment',
+        content: `
     <p class="mb-6">Mobile payment systems have revolutionized the way we conduct financial transactions, providing seamless, secure, and convenient ways to make payments using smartphones and other mobile devices. From contactless payments to peer-to-peer transfers and digital wallets, mobile payment technologies have become integral to everyday commerce. This article explores the evolution of mobile payment systems, their impact on consumers and businesses, and the future trends shaping this dynamic sector.</p>
 
     <h2 class="text-lg font-semibold my-4">The Evolution of Mobile Payment Systems</h2>
@@ -1346,14 +1347,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile payment systems have transformed the way we conduct financial transactions, offering convenient, secure, and versatile solutions for making payments and managing finances. As technology continues to evolve, mobile payment systems will play an increasingly important role in everyday commerce, enhancing user experiences and driving financial inclusion. By understanding their benefits, challenges, and emerging trends, consumers and businesses can leverage mobile payment systems to navigate the dynamic landscape of digital transactions, embracing the future of cashless and connected commerce.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1600194991235-16e332d5302f'
-  },
-  {
-    id: 29,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1600194991235-16e332d5302f'
+    },
+    {
+        id: 29,
+        author: "Itel",
 
-    title: 'The Evolution of Mobile Live Streaming',
-    content: `
+        title: 'The Evolution of Mobile Live Streaming',
+        content: `
     <p class="mb-6">Mobile live streaming has transformed the way we share experiences, connect with audiences, and consume content in real time. From social interactions to brand marketing and news broadcasting, mobile live streaming offers dynamic opportunities for engagement and interaction. This article delves into the evolution of mobile live streaming, explores its impact on various sectors, and provides insights into how to effectively leverage this powerful tool for real-time engagement.</p>
 
     <h2 class="text-lg font-semibold my-4">The Evolution of Mobile Live Streaming :</h2>
@@ -1397,14 +1398,14 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile live streaming has revolutionized how we share, connect, and engage in real time, offering dynamic opportunities for social interaction, content creation, and brand engagement. As technology continues to advance, mobile live streaming will evolve, providing even more immersive and interactive experiences. By understanding its benefits, challenges, and best practices, users can harness the power of mobile live streaming to build authentic connections, reach wider audiences, and create compelling, real-time content that resonates in today’s digital age.</p>
   `,
-    imageUrl: 'https://images.unsplash.com/photo-1666636059677-fd22a7e94e0b'
-  },
-  {
-    id: 30,
-    author: "Itel",
+        imageUrl: 'https://images.unsplash.com/photo-1666636059677-fd22a7e94e0b'
+    },
+    {
+        id: 30,
+        author: "Itel",
 
-    title: 'Transforming Healthcare and Wellness',
-    content: `
+        title: 'Transforming Healthcare and Wellness',
+        content: `
     <p class="mb-6">In the ever-expanding landscape of digital technology, mobile apps have emerged as the new frontier of innovation, transforming how we interact with information, services, and each other. This article delves into the dynamic world of mobile apps, exploring their impact on various industries, the evolving trends shaping their development, and the opportunities they present for businesses and consumers alike.</p>
 
     <h2 class="text-lg font-semibold my-4">Empowering Industries Across the Spectrum :</h2>
@@ -1445,29 +1446,52 @@ YouTube Live: Offers robust live streaming capabilities for content creators, in
     <h2 class="text-lg font-semibold my-4">Conclusion :</h2>
     <p class="mb-6">Mobile apps have become the cornerstone of digital innovation, empowering industries, businesses, and consumers with unprecedented levels of connectivity, convenience, and customization. From revolutionizing retail and healthcare to transforming education and entertainment, apps are reshaping the way we live, work, and interact in an increasingly digital world. By embracing emerging trends and technologies, addressing challenges, and fostering a culture of innovation, businesses and developers can harness the full potential of mobile apps to drive positive change and shape the future of digital experiences.</p>
   `,
-    imageUrl: 'https://plus.unsplash.com/premium_photo-1684751595304-d8ae260ac98a'
-  },
+        imageUrl: 'https://plus.unsplash.com/premium_photo-1684751595304-d8ae260ac98a'
+    },
 
 ];
 
 
 const ArticlePage = () => {
-  const { id } = useParams();
-  const article = articles.find(article => article.id === parseInt(id));
+    const isTabletView = () => {
+        return window.innerWidth >= 768 && window.innerWidth < 1024; // Assuming tablet width range
+    };
 
-  if (!article) {
-    return <p>Article not found</p>;
-  }
+    const isLaptopView = () => {
+        return window.innerWidth >= 1024; // Assuming laptop width range
+    };
+    const { id } = useParams();
+    const article = articles.find(article => article.id === parseInt(id));
 
-  return (
-    <>
-     
-      <div className="container mx-auto p-4 flex flex-col lg:flex-row justify-center items-center">
-        <div className="w-full lg:w-3/4 p-4 shadow-xl">
-          <h1 className="text-2xl font-bold mb-4 text-center">{article.title}</h1>
-          <div className="prose lg:prose-xl text-center" dangerouslySetInnerHTML={{ __html: article.content }}></div>
-        </div>
-        {/* <div className='md:grid md:grid-cols-2 lg:grid-cols-1 justify-between'>
+    if (!article) {
+        return <p>Article not found</p>;
+    }
+
+    return (
+        <>
+
+            <div className="container mx-auto p-4 flex flex-col lg:flex-row justify-center items-center">
+                <div className="w-full lg:w-3/4 p-4 shadow-xl">
+                    <h1 className="text-2xl font-bold mb-4 text-center">{article.title}</h1>
+                    <div className='flex justify-evenly flex-wrap'>
+                        <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
+                        <Adsense client="ca-pub-7832822790443742" slot="6" width={336} height={280} />
+                        {isTabletView() && (
+                            <>
+                                <Adsense client="ca-pub-7832822790443742" slot="7" width={728} height={90} />
+                                <Adsense client="ca-pub-7832822790443742" slot="8" width={768} height={90} />
+                            </>
+                        )}
+                        {isLaptopView() && (
+                            <>
+                                <Adsense client="ca-pub-7832822790443742" slot="9" width={1024} height={90} />
+                                <Adsense client="ca-pub-7832822790443742" slot="10" width={1200} height={90} />
+                            </>
+                        )}
+                    </div>
+                    <div className="prose lg:prose-xl text-center" dangerouslySetInnerHTML={{ __html: article.content }}></div>
+                </div>
+                {/* <div className='md:grid md:grid-cols-2 lg:grid-cols-1 justify-between'>
           <ArticleSidebar />
           <ArticleSidebar />
           <ArticleSidebar />
@@ -1475,10 +1499,10 @@ const ArticlePage = () => {
           <ArticleSidebar />
           <ArticleSidebar />
         </div> */}
-      </div>
-    </>
+            </div>
+        </>
 
-  );
+    );
 };
 
 export default ArticlePage;

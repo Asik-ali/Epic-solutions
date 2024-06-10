@@ -41,7 +41,7 @@
 // export default AdSense;
 import React, { useEffect, useRef } from 'react';
 
-const AdSense = ({ client, slot, width, height }) => {
+const Adsense = ({ client, slot, width, height }) => {
   const adRef = useRef(null);
 
   useEffect(() => {
@@ -100,4 +100,4 @@ const AdSense = ({ client, slot, width, height }) => {
   );
 };
 
-export default AdSense;
+export default Adsense;
