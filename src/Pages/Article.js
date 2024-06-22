@@ -1500,7 +1500,7 @@ const ArticlePage = () => {
                             </>
                         )}
                     </div>
-                    <div className='flex justify-evenly flex-wrap'>
+                    {/* <div className='flex justify-evenly flex-wrap'>
                         {isMobileView() && (
                             <>
                                 <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
@@ -1518,9 +1518,9 @@ const ArticlePage = () => {
                                 <Adsense client="ca-pub-7832822790443742" slot="10" width={1200} height={90} />
                             </>
                         )}
-                    </div>
+                    </div> */}
                     <div className="prose lg:prose-xl text-center" dangerouslySetInnerHTML={{ __html: article.content }}></div>
-                    <div className='flex justify-evenly flex-wrap'>
+                    {/* <div className='flex justify-evenly flex-wrap'>
                         {isMobileView() && (
                             <>
                                 <Adsense client="ca-pub-7832822790443742" slot="5" width={320} height={480} />
@@ -1538,7 +1538,7 @@ const ArticlePage = () => {
                                 <Adsense client="ca-pub-7832822790443742" slot="10" width={1200} height={90} />
                             </>
                         )}
-                    </div>
+                    </div> */}
                     <div className='flex justify-evenly flex-wrap'>
                         {isMobileView() && (
                             <>
@@ -1562,7 +1562,7 @@ const ArticlePage = () => {
                 <div className='md:grid md:grid-cols-2 lg:grid-cols-1 justify-between'>
           <ArticleSidebar />
           <ArticleSidebar />
-          <ArticleSidebar />
+         
          
         </div>
             </div>
