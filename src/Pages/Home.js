@@ -35,6 +35,8 @@ function Home() {
         {isLaptopView() && (
           <>
             <Adsense client="ca-pub-7832822790443742" slot="9" width={1024} height={90} />
+          <Adsense client="ca-pub-7832822790443742" slot="9" width={1024} height={90} />
+          <Adsense client="ca-pub-7832822790443742" slot="10" width={1200} height={90} />
             <Adsense client="ca-pub-7832822790443742" slot="10" width={1200} height={90} />
           </>
         )}
