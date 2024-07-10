@@ -28,6 +28,8 @@ function Home() {
           </>
         )}{isTabletView() && (
           <>
+  
+            <Adsense client="ca-pub-7832822790443742" slot="7" width={728} height={90} />
             <Adsense client="ca-pub-7832822790443742" slot="7" width={728} height={90} />
             <Adsense client="ca-pub-7832822790443742" slot="8" width={768} height={90} />
           </>
